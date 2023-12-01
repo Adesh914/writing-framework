@@ -1,0 +1,16 @@
+{
+    "name": "administrator/mvc-framework",
+    "description": "Custom framework packagist",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "adminmojo",
+            "email": "adesh.mvc@gmail.com"
+        }
+    ],
+    "require": {}
+}
