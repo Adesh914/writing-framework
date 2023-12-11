@@ -36,10 +36,9 @@ class Router
         $path = $this->request->getPath();
         $method = $this->request->getMethod();
           // Trim slashes
-          echo $path = trim($path, '/'); 
+           $path = trim($path, '/'); 
            // Get all routes for current request method
          $routes = $this->getRoutes($method);
-        
     }
     public function resolve(){
       $path = $this->request->getPath();
@@ -49,15 +48,16 @@ class Router
     
       if($callback==false){      
        $this->response->setStatusCode(404);
-            echo "Not Found";
+           $this->renderView('_404');
             exit;
         // }
       }
       if(is_string($callback)){
         return $this->renderView($callback);
       }
-       echo call_user_func($callback);
-    }
+    
+       return call_user_func($callback);
+  }
   public function renderView($view){
     $layoutContent = $this->layoutContent();
     $viewContent = $this->renderOnlyView($view);
