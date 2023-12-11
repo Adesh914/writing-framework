@@ -10,6 +10,7 @@ namespace app\controllers;
  class SiteController
  {
     public function contact(){
-        echo "conteact render view";
+        echo "conteact render view jklkljklj";
+        
     }
  }

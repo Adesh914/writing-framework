@@ -55,9 +55,18 @@ class Router
       if(is_string($callback)){
         return $this->renderView($callback);
       }
-    
+   if(is_array($callback)){
+    $controller = new $callback[0];
+    $controller->action = $callback[1];
+    Application::$app->controller = $controller;
+    // $middlewares = $controller->getMiddlewares();
+    // foreach ($middlewares as $middleware) {
+    //     $middleware->execute();
+    // }
+    $callback[0] = $controller;
+   }
        return call_user_func($callback);
-  }
+    }
   public function renderView($view){
     $layoutContent = $this->layoutContent();
     $viewContent = $this->renderOnlyView($view);
